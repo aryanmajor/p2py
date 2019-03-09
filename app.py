@@ -18,16 +18,14 @@ if __name__=="__main__" :
     print("..Done")
 
     print("\nSetting Server\n")
-    myserver=server.openServer(localip,IPpool)
+    myserver=server.openServer(localip,IPpool,userdata)
     print("\nServer Set up")
 
     clientui.clientui(userdata,IPpool,localip)
-
-    print(userdata)
 
     print("\nClosing Application")
 
     myserver.shutdown()
     myserver.server_close()
 
-    print("\nBye\n")
+    print("\nBye")

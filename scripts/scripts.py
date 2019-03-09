@@ -1,8 +1,6 @@
 import socket
 import json
-import socketserver
 import requests
-import threading
 
 def getlocalip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
