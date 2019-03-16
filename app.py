@@ -16,7 +16,7 @@ if __name__=="__main__" :
         print('Error Occured')
         sys.exit(e)
     print("..Done")
-
+    print(IPpool)
     print("\nSetting Server\n")
     myserver=server.openServer(localip,IPpool,userdata)
     print("\nServer Set up")

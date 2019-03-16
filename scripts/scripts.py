@@ -19,13 +19,16 @@ def fetch_ip_pool(ownip):
     return json.loads(reply.text)['ip']
 
 def sendRequest(ippool,ownip,msg):
-    c=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     i=0
     # send request to all the IP pool
     while i<len(ippool):
-        ip=ippool[i]
-        c.connect((ip,3010))
-        c.send(msg.encode('utf-8'))
-        msg=c.recv(1024)
-    c.close()
+        c=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        # c.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # c.bind(('0',4000))
+        c.connect((ippool[i],3010))
+        c.send(bytes(msg,'ascii'))
+        m=c.recv(1024)
+        print(m)
+        c.close()
+        i++;
     pass
